@@ -1,5 +1,4 @@
 #include <stdio.h>
-#include <ctype.h>
 
 /*
  * Name     : Ramindu Walgama
@@ -11,11 +10,13 @@ struct employee createEmp();
 void coinAnalysis(int salary, char * emp_name);
 void printSummary();
 
+// Data structure to save employee data
 struct employee{
     char name[50];
     int salary;
 };
 
+// Notes 2d array keep track of number of notes that required to pay total salaries.
 int len_notes = 10;
 int notes[10][2] = {{5000, 0}, {1000, 0}, {500, 0}, {100, 0}, {50, 0}, {20, 0}, {10, 0}, {5, 0}, {2, 0}, {1, 0}};
 long total_salary = 0;
@@ -31,8 +32,10 @@ int main() {
     scanf("%d", &emp_count);
     printf("\n\n");
 
+    // Array to keep track of all the employee details as a employee data structure array.
     struct employee emp_arr[emp_count];
 
+    // Input and process each employee data
     for (int i = 0; i < emp_count; ++i) {
         emp_arr[i] = createEmp();
         coinAnalysis(emp_arr[i].salary, emp_arr[i].name);
@@ -46,7 +49,11 @@ int main() {
     return 0;
 }
 
-
+/*
+ * @function: collect employee data
+ * @return: employee data struct
+ * @params: no parameters. take user inputs within the function
+ */
 struct employee createEmp(){
     struct employee emp_;
 
@@ -58,6 +65,12 @@ struct employee createEmp(){
     return emp_;
 }
 
+/*
+ * @function: calculate the number of notes required to pay a salary for
+ *            a given employee and update the total required notes.
+ * @return: void : prints the summary
+ * @params: salary and name of employee
+ */
 void coinAnalysis(int salary, char * emp_name){
     int noteNeed[] = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
     printf("\t------------ %s ------------\n", emp_name);
@@ -75,6 +88,12 @@ void coinAnalysis(int salary, char * emp_name){
     printf("\n\n");
 }
 
+/*
+ * @function: print the summary: total salary of all employees and number
+ *            of notes required to pay the total salary
+ * @return: void : prints the summary
+ * @params: -
+ */
 void printSummary(){
     printf("+-------------------------------------------------------------+\n");
     printf("+---Laara International (Pvt.) Ltd. (raminduw200@gmail.com)---+\n");
