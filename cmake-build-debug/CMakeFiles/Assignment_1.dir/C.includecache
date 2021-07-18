@@ -6,7 +6,9 @@
 
 #IncludeRegexTransform: 
 
-D:/UCSC/Year_1/C/Assignment 1/main.c
+/media/raminduwalgama/Education/UCSC/Year_1/C/Assignment 1/main.c
 stdio.h
+-
+ctype.h
 -
 
